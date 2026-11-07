@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="God's Honour (GH): phone repairs, web design, app design and IT solutions.">
+<meta name="theme-color" content="#061330">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>God's Honour Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+*{margin:0}img{max-width:100%}
+/* Layout: dark navy bench-sheet. Wordmark bar, big statement hero, four service spec cards with photos, a four-step process, footer. */
+:root {
+  --bg: #061330;
+  --surface: #0b1d44;
+  --surface-2: #10285a;
+  --line: #1d3770;
+  --fg: #eef3ff;
+  --muted: #9db0d6;
+  --accent: #5bbcf7;
+  --accent-ink: #04122c;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f3f6fc; --surface: #ffffff; --surface-2: #e6edf9; --line: #cdd8ee;
+    --fg: #0a1a3d; --muted: #4c5f87; --accent: #0b6fb8; --accent-ink: #ffffff;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f3f6fc; --surface: #ffffff; --surface-2: #e6edf9; --line: #cdd8ee;
+  --fg: #0a1a3d; --muted: #4c5f87; --accent: #0b6fb8; --accent-ink: #ffffff;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin-inline: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* top bar */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 800 17px/1 var(--font-display); letter-spacing: -.02em; flex: none; }
+.brand b { font: 700 17px/1.1 var(--font-display); letter-spacing: .01em; display: block; }
+.brand span { display: block; }
+.nav { display: flex; gap: 22px; }
+.nav a { text-decoration: none; font-size: 14px; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+@media (max-width: 560px) { .nav { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(48px, 9vw, 104px) clamp(40px, 7vw, 72px); display: grid; gap: 28px; }
+.hero h1 { font: 800 clamp(40px, 8.2vw, 92px)/.98 var(--font-display); letter-spacing: -.03em; margin: 0; text-wrap: balance; max-width: 14ch; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p { margin: 0; max-width: 52ch; font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag { border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13px; color: var(--fg); background: var(--surface); }
+
+/* services */
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.section-head h2 { font: 700 clamp(26px, 4vw, 38px)/1.1 var(--font-display); letter-spacing: -.02em; margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px 24px; }
+.svc { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.shot { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); aspect-ratio: 367 / 220; max-width: 100%; }
+.shot img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.svc:hover .shot img { transform: scale(1.03); }
+.code { position: absolute; left: 12px; top: 12px; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 9px; font: 500 11px/1.4 var(--font-mono); letter-spacing: .1em; }
+.svc h3 { font: 700 24px/1.15 var(--font-display); letter-spacing: -.01em; margin: 0; }
+.svc p { margin: 0; color: var(--muted); max-width: 46ch; }
+.scope { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; }
+.scope li::before { content: "+"; color: var(--accent); font-family: var(--font-mono); margin-right: 6px; }
+
+/* process */
+.process { margin-top: clamp(56px, 8vw, 96px); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; counter-reset: s; }
+.steps li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.steps li::before { content: "Step " counter(s); font: 500 11px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.steps b { font: 700 19px/1.2 var(--font-display); }
+.steps span { color: var(--muted); font-size: 15px; }
+
+/* closing */
+.closing { margin-top: clamp(56px, 8vw, 96px); background: var(--surface-2); border: 1px solid var(--line); border-radius: 20px; padding: clamp(24px, 5vw, 48px); display: grid; gap: 14px; }
+.closing h2 { font: 800 clamp(28px, 5vw, 48px)/1.05 var(--font-display); letter-spacing: -.025em; margin: 0; max-width: 18ch; text-wrap: balance; }
+.closing p { margin: 0; color: var(--muted); max-width: 52ch; }
+footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 32px 40px; margin-top: 56px; border-top: 1px solid var(--line); }
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } .svc:hover .shot img { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">GH</div>
+      <div><b>God's Honour</b><span class="mono">GH · Tech Solutions</span></div>
+    </div>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="mono">Tech solutions. Digital innovation.</span>
+    <h1>Turning your ideas into <em>reality.</em></h1>
+    <p>God's Honour (GH) repairs phones, designs websites and apps, and keeps your technology running. One team for the screen in your hand and the systems behind your business.</p>
+    <div class="tags">
+      <span class="tag">Phone Repairs</span>
+      <span class="tag">Web Design</span>
+      <span class="tag">App Design</span>
+      <span class="tag">IT Solutions</span>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-h">
+    <div class="section-head">
+      <h2 id="services-h">What we do</h2>
+      <span class="mono">4 services</span>
+    </div>
+    <div class="grid">
+      <article class="svc">
+        <div class="shot"><img src="assets/phone-repairs.jpg" alt="Technician repairing a phone on an anti-static mat" width="702" height="408"><span class="code">SVC-01</span></div>
+        <h3>Phone Repairs</h3>
+        <p>Screen repairs, troubleshooting and maintenance.</p>
+        <ul class="scope"><li>Screen replacement</li><li>Fault finding</li><li>Maintenance</li></ul>
+      </article>
+      <article class="svc">
+        <div class="shot"><img src="assets/web-design.jpg" alt="Website design shown on a monitor beside a laptop with code" width="702" height="408"><span class="code">SVC-02</span></div>
+        <h3>Web Design</h3>
+        <p>Business websites and digital platforms.</p>
+        <ul class="scope"><li>Business websites</li><li>Digital platforms</li><li>Responsive layouts</li></ul>
+      </article>
+      <article class="svc">
+        <div class="shot"><img src="assets/app-design.jpg" alt="Two designers reviewing mobile app screens on a monitor" width="702" height="408"><span class="code">SVC-03</span></div>
+        <h3>App Design</h3>
+        <p>Mobile applications and user interfaces.</p>
+        <ul class="scope"><li>Mobile applications</li><li>User interfaces</li><li>Prototypes</li></ul>
+      </article>
+      <article class="svc">
+        <div class="shot"><img src="assets/it-solutions.jpg" alt="IT engineer working on a server rack with a laptop" width="702" height="408"><span class="code">SVC-04</span></div>
+        <h3>IT Solutions</h3>
+        <p>Technical support and technology services.</p>
+        <ul class="scope"><li>Technical support</li><li>Networks and hardware</li><li>Technology services</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="process" class="process" aria-labelledby="process-h">
+    <div class="section-head">
+      <h2 id="process-h">How we work</h2>
+      <span class="mono">Idea to delivery</span>
+    </div>
+    <ol class="steps">
+      <li><b>Listen</b><span>You tell us the problem or the idea.</span></li>
+      <li><b>Plan</b><span>We agree on scope and what done looks like.</span></li>
+      <li><b>Build or repair</b><span>We do the work and keep you updated.</span></li>
+      <li><b>Support</b><span>We stay available after hand-over.</span></li>
+    </ol>
+  </section>
+
+  <section class="closing">
+    <span class="mono">Start a project</span>
+    <h2>Got a broken screen or a big idea?</h2>
+    <p>Bring it to God's Honour. Whether it is a repair, a website, an app or your office systems, we turn it into something that works.</p>
+  </section>
+
+  <footer>
+    <span class="mono">God's Honour (GH)</span>
+    <span class="mono">Tech solutions. Digital innovation.</span>
+  </footer>
+</div>
+</body>
+</html>
